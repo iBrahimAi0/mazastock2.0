@@ -1,0 +1,101 @@
+/* Amélioration globale du design */
+.container-fluid {
+    padding: 2rem;
+    background-color: #F8F9FA; /* Fond principal */
+}
+
+/* Styles pour la table */
+.table-clients {
+    background-color: #FFFFFF;
+    border-collapse: separate;
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+.table-clients th, .table-clients td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    color: #343A40; /* Texte foncé pour une meilleure lisibilité */
+}
+
+.table-clients thead th {
+    background-color: #007BFF; /* Bleu principal */
+    color: #FFFFFF; /* Texte blanc */
+    text-align: center;
+}
+
+.table-clients tbody td {
+    text-align: center;
+    border-top: none;
+}
+
+/* Boutons et interactions */
+.btn-primary {
+    background-color: #007BFF; /* Bleu */
+    border-color: #007BFF; /* Bordure bleue */
+}
+
+.btn-warning, .btn-danger {
+    opacity: 0.9;
+}
+
+.btn-warning:hover, .btn-danger:hover {
+    opacity: 1; /* Pleine couleur au survol */
+}
+
+/* Champ de recherche */
+.input-group .form-control {
+    border-color: #CED4DA; /* Gris pour le champ */
+}
+
+.input-group-text {
+    background-color: #6C757D; /* Gris pour l'icône de recherche */
+    color: white;
+}
+
+/* Adaptations pour un meilleur confort visuel */
+.table-clients .btn-warning {
+    color: #6C757D; /* Gris plus doux pour modifier */
+    background-color: #E2E6EA;
+    border-color: #D6D8DB;
+}
+
+.table-clients .btn-danger {
+    color: #721C24; /* Rouge atténué pour supprimer */
+    background-color: #F5C6CB;
+    border-color: #F1B0B7;
+}
+
+/* Transitions douces pour une interaction plus agréable */
+button, input, .form-control {
+    transition: all 0.3s ease;
+}
+
+
+/* Adaptations pour les modals */
+.modal-header {
+    background-color: #f8f9fa; /* Fond léger */
+}
+
+/* Style pour les alertes */
+.alert-success {
+    background-color: #d4edda; /* Vert clair */
+}
+
+
+.ouvrir-caisse-btn {
+    background-color: #007bff; /* Bleu Bootstrap par défaut, ajustez selon votre palette de couleurs */
+    border-color: #007bff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Ombre plus subtile */
+    color: white; /* Assurez-vous que la couleur du texte est bien visible sur le fond. */
+    transition: all 0.2s; /* Transition douce pour les interactions */
+}
+
+.ouvrir-caisse-btn:hover {
+    background-color: #0056b3; /* Une teinte légèrement plus foncée au survol */
+    border-color: #0056b3;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2); /* Ombre légèrement plus prononcée au survol */
+}
