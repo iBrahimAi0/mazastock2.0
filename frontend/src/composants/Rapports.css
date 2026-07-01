@@ -32,6 +32,7 @@
 }
 
 .export-btn {
+  color: white;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -40,7 +41,9 @@
   border-radius: var(--radius);
   transition: all 0.2s ease;
 }
-
+.btn-outline-primary {
+  color: var(--primary);
+}
 .export-btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
@@ -90,7 +93,11 @@
 }
 
 .card-header-modern {
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--surface) 0%,
+    var(--surface-alt) 100%
+  );
   border-bottom: 1px solid var(--border);
   padding: 20px 24px;
   display: flex;
@@ -101,10 +108,11 @@
 .card-title {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   font-weight: 600;
   font-size: 1.1rem;
-  color: var(--text);
+  color: #fff;
 }
 
 .card-title svg {
@@ -217,7 +225,7 @@
 
   .export-btn {
     flex: 1;
-  justify-content: center;
+    justify-content: center;
   }
 
   .modern-table {

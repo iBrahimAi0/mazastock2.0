@@ -80,9 +80,132 @@
 }
 
 .modern-datatable .p-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
   background: var(--surface);
   border-top: 1px solid var(--border);
-  padding: 12px 20px;
+  padding: 16px 20px;
+}
+
+.modern-datatable .p-paginator .p-paginator-first,
+.modern-datatable .p-paginator .p-paginator-prev,
+.modern-datatable .p-paginator .p-paginator-next,
+.modern-datatable .p-paginator .p-paginator-last {
+  min-width: 36px;
+  height: 36px;
+  margin: 0 2px;
+  width: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modern-datatable .p-paginator .p-paginator-first:hover:not(.p-disabled),
+.modern-datatable .p-paginator .p-paginator-prev:hover:not(.p-disabled),
+.modern-datatable .p-paginator .p-paginator-next:hover:not(.p-disabled),
+.modern-datatable .p-paginator .p-paginator-last:hover:not(.p-disabled) {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+
+.modern-datatable .p-paginator .p-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.modern-datatable .p-paginator .p-paginator-pages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 8px;
+}
+
+.modern-datatable .p-paginator .p-paginator-page {
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modern-datatable .p-paginator .p-paginator-page:hover:not(.p-highlight) {
+  background: var(--surface-hover);
+  border-color: var(--border);
+}
+
+.modern-datatable .p-paginator .p-paginator-page.p-highlight {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.35);
+}
+
+.modern-datatable .p-paginator .p-paginator-current {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0 4px 0 12px;
+  white-space: nowrap;
+}
+
+.modern-datatable .p-paginator .p-dropdown {
+  height: 36px;
+  min-width: 84px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px;
+  margin-left: 8px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.modern-datatable .p-paginator .p-dropdown:hover {
+  border-color: var(--primary);
+}
+
+.modern-datatable .p-paginator .p-dropdown .p-dropdown-label {
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.modern-datatable .p-paginator .p-dropdown .p-dropdown-trigger {
+  width: 20px;
+  color: var(--muted);
+  padding-left: 10px;
+}
+
+@media (max-width: 576px) {
+  .modern-datatable .p-paginator {
+    gap: 4px;
+    padding: 12px;
+  }
+
+  .modern-datatable .p-paginator .p-paginator-current {
+    order: 10;
+    width: 100%;
+    text-align: center;
+    margin: 8px 0 0 0;
+  }
 }
 
 /* Product image cell */
@@ -153,8 +276,7 @@
 }
 
 .upload-placeholder {
-  width: 200px;
-  height: 200px;
+  height: 100%;
   border: 2px dashed var(--border);
   border-radius: var(--radius-lg);
   display: flex;
@@ -170,7 +292,11 @@
 
 .upload-placeholder:hover {
   border-color: var(--primary);
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.05),
+    rgba(139, 92, 246, 0.05)
+  );
 }
 
 .upload-icon {
@@ -199,7 +325,11 @@
 }
 
 .p-dialog-header {
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--surface) 0%,
+    var(--surface-alt) 100%
+  );
   border-bottom: 1px solid var(--border);
   padding: 20px 24px;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
@@ -211,6 +341,7 @@
 
 .p-dialog-footer {
   border-top: 1px solid var(--border);
+  gap: 10px;
   padding: 16px 24px;
   border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 }

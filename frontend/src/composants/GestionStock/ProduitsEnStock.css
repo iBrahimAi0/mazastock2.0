@@ -93,7 +93,11 @@
 }
 
 .modern-dialog .p-dialog-header {
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--surface) 0%,
+    var(--surface-alt) 100%
+  );
   border-bottom: 1px solid var(--border);
   padding: 20px 24px;
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
@@ -175,6 +179,7 @@
   border: none;
   color: white;
   font-weight: 600;
+  height: 50px;
   border-radius: var(--radius);
   transition: all 0.2s ease;
 }
@@ -193,13 +198,21 @@
 }
 
 .alert-success {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.08));
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.1),
+    rgba(52, 211, 153, 0.08)
+  );
   border-left: 4px solid var(--success);
   color: var(--success);
 }
 
 .alert-danger {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(248, 113, 113, 0.08));
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.1),
+    rgba(248, 113, 113, 0.08)
+  );
   border-left: 4px solid var(--danger);
   color: var(--danger);
 }

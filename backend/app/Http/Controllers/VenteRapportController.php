@@ -13,13 +13,42 @@ public function suivreTendancesProduitPlusVendu(Request $request)
 {
     $dates = $this->validateDates($request);
 
-    $tendances = DetailCommande::join('produits', 'details_commandes.produit_id', '=', 'produits.id')
-                    ->whereBetween('details_commandes.created_at', [$dates['dateDebut'], $dates['dateFin']])
-                    ->select('produits.nom as produit', DB::raw('sum(details_commandes.quantite) as quantite_vendue'))
-                    ->groupBy('produits.nom')
-                    ->orderByDesc('quantite_vendue')
-                    ->limit(5) // Vous pouvez ajuster le nombre de produits à afficher ici
-                    ->get();
+    $tendances = DetailCommande::join(
+            'produits',
+            'details_commandes.produit_id',
+            '=',
+            'produits.id'
+        )
+        ->whereBetween(
+            'details_commandes.created_at',
+            [$dates['dateDebut'], $dates['dateFin']]
+        )
+        ->select(
+            'produits.nom as produit',
+            DB::raw('SUM(details_commandes.quantite) as quantite_vendue')
+        )
+        ->groupBy('produits.id', 'produits.nom')
+        ->orderByDesc('quantite_vendue')
+        ->limit(5)
+        ->get();
+
+    // Calculate trend
+    foreach ($tendances as $tendance) {
+
+        if ($tendance->quantite_vendue >= 30) {
+
+            $tendance->tendance = 'En hausse';
+
+        } elseif ($tendance->quantite_vendue >= 15) {
+
+            $tendance->tendance = 'Stable';
+
+        } else {
+
+            $tendance->tendance = 'En baisse';
+
+        }
+    }
 
     return response()->json($tendances);
 }

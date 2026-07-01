@@ -4,7 +4,9 @@
   min-height: 100vh;
 }
 
-.client-selection, .categorie-selection, .commande-details {
+.client-selection,
+.categorie-selection,
+.commande-details {
   background: var(--surface);
   padding: 20px;
   border-radius: var(--radius-lg);
@@ -13,12 +15,13 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.client-selection:hover, .categorie-selection:hover {
+.client-selection:hover,
+.categorie-selection:hover {
   box-shadow: var(--shadow-md);
 }
 
-.categorie-selection .list-group-item, 
-.client-selection .list-group-item, 
+.categorie-selection .list-group-item,
+.client-selection .list-group-item,
 .commande-details .list-group-item {
   margin-right: 8px;
   cursor: pointer;
@@ -35,7 +38,7 @@
   transform: translateX(4px);
 }
 
-.categorie-selection .list-group-item.active, 
+.categorie-selection .list-group-item.active,
 .client-selection .list-group-item.active {
   background: linear-gradient(135deg, var(--primary), var(--accent));
   border-color: var(--primary);
@@ -120,7 +123,11 @@
   height: calc(100vh - 48px);
   overflow-y: auto;
   border-left: 1px solid var(--border);
-  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-alt) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--surface) 0%,
+    var(--surface-alt) 100%
+  );
 }
 
 .commande-details .list-group {
@@ -221,7 +228,11 @@
 .modal-header {
   border-bottom: 1px solid var(--border);
   padding: 20px 24px;
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--surface) 0%,
+    var(--surface-alt) 100%
+  );
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
