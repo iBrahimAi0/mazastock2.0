@@ -22,7 +22,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./StylesCommuns.css";
 import ReactDOM from "react-dom";
-
+import InvoiceGenerator from "../InvoiceGenerator";
 const CommandesList = () => {
   const [commandes, setCommandes] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -89,7 +89,15 @@ const CommandesList = () => {
     setSelectedCommande(commande);
     setShowModal(true);
   };
+  const handleDownloadInvoice = async () => {
+  if (!selectedCommande) return;
 
+  try {
+    await InvoiceGenerator(selectedCommande);
+  } catch (error) {
+    console.error("Erreur lors de la génération de la facture :", error);
+  }
+};
   const handleChangeEtat = async (commandeId, newEtat) => {
     try {
       await axios.put(`http://localhost:8000/api/commandes/${commandeId}`, {
@@ -330,10 +338,22 @@ const CommandesList = () => {
             </Table>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={() => setShowModal(false)}>
-              Fermer
-            </Button>
-          </Modal.Footer>
+
+  <Button
+    variant="success"
+    onClick={handleDownloadInvoice}
+  >
+    📄 Télécharger la facture
+  </Button>
+
+  <Button
+    variant="secondary"
+    onClick={() => setShowModal(false)}
+  >
+    Fermer
+  </Button>
+
+</Modal.Footer>
         </Modal>
       )}
     </div>

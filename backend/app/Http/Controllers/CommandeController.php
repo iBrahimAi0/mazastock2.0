@@ -16,7 +16,7 @@ class CommandeController extends Controller
     // Lister toutes les commandes
     public function index()
     {
-        $commandes = Commande::with(['client', 'produit','details.produit'])->orderBy('created_at', 'desc')->get();
+        $commandes = Commande::with(['client', 'produit','details.produit','paiement'])->orderBy('created_at', 'desc')->get();
         return response()->json($commandes);
     }
 
